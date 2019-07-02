@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njnu.mapper.CategoryMapper">
+    <select id="selectAll" resultType="com.njnu.bean.Category">
+      select * from category
+    </select>
+
+    <select id="selectById" resultType="com.njnu.bean.Category" parameterType="int">
+      select * from category where id=#{id}
+    </select>
+
+    <delete id="deleteById" >
+        delete from category where id=#{id}
+    </delete>
+
+    <insert id="save" parameterType="com.njnu.bean.Category">
+        insert into category(category,remark) values (#{category},#{remark})
+    </insert>
+
+    <update id="update" parameterType="com.njnu.bean.Category">
+        update  category  set
+        <trim suffixOverrides=",">
+        <if test="category!=null">
+          category =#{category},
+        </if>
+        <if test="remark!=null">
+            remark=#{remark}
+        </if>
+        </trim>
+        where id=#{id}
+    </update>
+</mapper>
