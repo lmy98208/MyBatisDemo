@@ -39,8 +39,8 @@ public class TestMybatis {
 //            System.out.println("（删除）受影响的行数："+rows);
 
             Category category1=new Category();
-            category1.setCategory("历史");
-            category1.setRemark("历史学家");
+            category1.setCategory("玄幻");
+            category1.setRemark("玄幻remark");
             rows=mapper.save(category1);
             System.out.println("（插入）受影响的行数："+rows);
 
